@@ -1,0 +1,93 @@
+Game Sales Analysis with Filters
+This Python application enables users to filter and view top-selling video games based on various criteria: Year, Genre, Platform, and Publisher. The program provides an intuitive GUI built with Tkinter and leverages pandas for data manipulation. It also allows users to export the filtered results to a CSV file, making it an excellent tool for data analysis and exploration of video game sales trends.
+
+Requirements
+Python Version:
+Python 3.7 or higher.
+Required Libraries:
+tkinter (comes pre-installed with Python).
+pandas (for data manipulation).
+
+
+To install the required pandas library, run: pip install pandas
+
+
+Project Description
+This project is designed for analyzing and filtering video game sales data by year, genre, platform, and publisher. The user can select specific criteria from dropdown menus, view the top-selling games, and export the results to a CSV file. It also handles various fail scenarios, ensuring a smooth user experience even when invalid input is provided.
+
+Key Features:
+Dynamic Dropdowns: Dropdowns for Year, Genre, Platform, and Publisher are populated dynamically based on the dataset.
+Top-Selling Games: After applying filters, users can specify how many top-selling games to display.
+CSV Export: Results are exported into a CSV file for further analysis or reporting.
+Error Handling: The application gracefully handles invalid user inputs and other common issues, such as empty results.
+
+Features and Use Cases
+1. Filter Games by Year, Genre, Platform, and Publisher:
+The user selects values for Year, Genre, Platform, and Publisher from dropdown menus.
+The dropdowns dynamically update based on the selected Year, displaying only valid options for Genre, Platform, and Publisher based on the dataset.
+Use Case:
+You want to view the top-selling games for a specific year (e.g., 2020) within a certain genre (e.g., Action games), on a specific platform (e.g., PlayStation), and by a particular publisher (e.g., EA).
+
+2. View Top-Selling Games:
+After applying filters, the user can specify how many top-selling games they want to see.
+The application displays the top N games based on global sales, using the Global_Sales column from the dataset.
+Use Case:
+You want to view the top 5 selling games in the Action genre for 2020 on the PlayStation 4.
+
+3. Export Results to CSV:
+Once the user has filtered the data, the results are saved to a CSV file, named Filtered_Results.csv by default.
+Use Case:
+You want to save the results for later analysis or share them with others.
+
+Fail Scenarios and Error Handling
+1. Invalid Year Input:
+If the user selects an invalid year (e.g., a non-numeric value or a year not in the dataset), an error message is displayed, and the program prompts the user to choose a valid year.
+Example:
+If the user tries to enter a year like "2019.0" or a string instead of a number, the program will show an error:
+"Invalid year selected."
+
+2. No Results Found for Selected Filters:
+If the combination of filters results in no matching games, the program will display an error message indicating that no results match the criteria.
+Example:
+If the user selects a year and genre that have no data in the dataset, the program will show:
+"No results found for the selected criteria."
+
+3. Invalid Number for Top N Games:
+When the user enters an invalid number for the number of top-selling games (e.g., a non-numeric value), the program will display an error message and ask the user to enter a valid number.
+Example:
+If the user enters a string like "five" instead of a numeric value, the program will show:
+"Please enter a valid number for the top # of games."
+
+4. Empty or Missing Data:
+The dataset may contain missing or incomplete data. The program automatically handles this by dropping any rows that have missing values in essential columns like Name, Genre, Platform, Publisher, or Global_Sales.
+Example:
+If the data for a game is incomplete, it will be removed from the dataset, ensuring no errors or incomplete results.
+
+5. Unexpected Errors:
+If any unexpected error occurs, the program will display a generic error message.
+Example:
+"An unexpected error occurred. Please try again."
+
+Code Breakdown
+1. Dynamic Dropdowns:
+The update_dropdowns function updates the options in the Genre, Platform, and Publisher dropdowns based on the selected Year. It ensures that only valid options appear based on the current filter selection.
+
+2. Filtering Results:
+The filter_results function filters the dataset by the selected Year, Genre, Platform, and Publisher and then shows the top N games based on Global_Sales.
+
+3. CSV Export:
+The write_to_csv function saves the filtered data to a CSV file named Filtered_Results.csv for later use.
+
+4. GUI Setup:
+The Tkinter library is used to create the graphical user interface. The dropdowns are populated dynamically, and results are displayed in the main window. The user can apply filters and export the results with a simple click.
+
+Notes
+Dataset: Ensure the vgsales.csv file is in the same folder as the script for proper functionality. The file contains the necessary columns: Name, Genre, Platform, Publisher, Year, and Global_Sales.
+Future Improvements: Can extend this project to include live data fetching from external APIs (e.g., sales data APIs) to keep the application up-to-date with current sales trends.
+
+
+
+
+
+
+
